@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micheille Soifer | Official Haute Couture & Music Portal</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cormorant Garamond (Regal Serif) & Outfit (Ultra-Sleek Modern Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        lux: {
+                            black: '#070707',
+                            surface: '#111111',
+                            card: '#161616',
+                            border: '#222222',
+                            gold: '#D4AF37',
+                            goldHover: '#f3cf65',
+                            champagne: '#E6D7B8',
+                            roseGold: '#B8860B',
+                            charcoal: '#1c1c1e',
+                            textMuted: '#9e9e9e'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Outfit', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        ultra: '0.25em',
+                        mega: '0.35em'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #070707;
+            color: #f3f3f3;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        /* Ambient Glow & Glass Effects */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .glass-header {
+            background: rgba(7, 7, 7, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #E6D7B8 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #E6D7B8 50%, #B59328 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070707;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="selection:bg-lux-gold selection:text-black flex flex-col min-h-screen">
+
+    <header class="sticky top-0 z-40 glass-header border-b border-lux-border transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                
+                <!-- Left Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-xs font-medium tracking-ultra uppercase text-gray-300">
+                    <a href="#inicio" class="hover:text-lux-gold transition-colors duration-300">Inicio</a>
+                    <a href="#musica" class="hover:text-lux-gold transition-colors duration-300">Música</a>
+                    <a href="#fanclub" class="text-lux-champagne hover:text-lux-gold transition-colors duration-300 flex items-center gap-1.5 font-semibold">
+                        <i class="fa-solid fa-crown text-[10px] text-lux-gold"></i> VIP Club
+                    </a>
+                </nav>
+
+                <!-- Center Logo -->
+                <a href="#inicio" class="flex flex-col items-center group">
+                    <span class="font-serif-title font-light tracking-mega text-xl sm:text-2xl lg:text-3xl uppercase text-white group-hover:text-lux-gold transition-colors duration-500">
+                        MICHEILLE SOIFER
+                    </span>
+                    <span class="text-[9px] tracking-ultra text-lux-gold uppercase font-light opacity-80">HAUTE COUTURE & MUSIC</span>
+                </a>
+
+                <!-- Right Menu Items & Actions -->
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden lg:flex items-center space-x-8 text-xs font-medium tracking-ultra uppercase text-gray-300">
+                        <a href="#tienda" class="hover:text-lux-gold transition-colors duration-300">E-Shop</a>
+                        <a href="#booking" class="text-lux-gold border border-lux-gold/40 px-3 py-1 rounded hover:bg-lux-gold hover:text-black transition-all duration-300">Booking</a>
+                        <a href="#contacto" class="hover:text-lux-gold transition-colors duration-300">Contacto</a>
+                    </nav>
+
+                    <!-- Icons & Controls -->
+                    <div class="flex items-center space-x-4 pl-4 border-l border-lux-border/60">
+                        <button onclick="toggleSearchModal()" aria-label="Buscar" class="text-gray-300 hover:text-lux-gold transition-colors p-2">
+                            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                        </button>
+
+                        <button onclick="toggleCartDrawer()" aria-label="Carrito" class="relative text-gray-300 hover:text-lux-gold transition-colors p-2">
+                            <i class="fa-solid fa-bag-shopping text-base"></i>
+                            <span id="cart-count-badge" class="absolute top-0 right-0 bg-lux-gold text-black font-extrabold text-[9px] rounded-full h-4 w-4 flex items-center justify-center">
+                                0
+                            </span>
+                        </button>
+
+                        <a href="#fanclub" class="hidden sm:inline-flex items-center gap-2 text-[10px] tracking-ultra uppercase font-bold text-black gold-button-gradient px-4 py-2.5 rounded shadow-lg hover:brightness-110 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-crown text-[10px]"></i> VIP
+                        </a>
+
+                        <!-- Mobile Hamburger Button -->
+                        <button onclick="toggleMobileMenu()" aria-label="Menu" class="lg:hidden text-gray-200 hover:text-lux-gold text-xl focus:outline-none p-2">
+                            <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-lux-card border-b border-lux-border px-6 py-6 space-y-4">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-white text-xs tracking-ultra font-light uppercase py-2 border-b border-lux-border">INICIO</a>
+            <a href="#musica" onclick="toggleMobileMenu()" class="block text-gray-300 text-xs tracking-ultra font-light uppercase py-2 border-b border-lux-border">MÚSICA & SHOWS</a>
+            <a href="#fanclub" onclick="toggleMobileMenu()" class="block text-lux-gold text-xs tracking-ultra font-bold uppercase py-2 border-b border-lux-border flex justify-between items-center">
+                <span>VIP FAN CLUB</span>
+                <span class="text-[10px] bg-lux-gold/20 text-lux-gold px-2 py-0.5 rounded border border-lux-gold/30">S/ 9 / MES</span>
+            </a>
+            <a href="#tienda" onclick="toggleMobileMenu()" class="block text-gray-300 text-xs tracking-ultra font-light uppercase py-2 border-b border-lux-border">E-SHOP HAUTE COUTURE</a>
+            <a href="#booking" onclick="toggleMobileMenu()" class="block text-lux-champagne font-bold text-xs tracking-ultra uppercase py-2 border-b border-lux-border">BOOKING & CONTRATACIONES</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-gray-300 text-xs tracking-ultra font-light uppercase py-2">CONTACTO</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+            <!-- Subtle Atmospheric Background Video / Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop" 
+                     alt="Micheille Soifer Editorial" 
+                     class="w-full h-full object-cover object-top opacity-30 filter grayscale hover:grayscale-0 transition-all duration-1000 scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-lux-black via-lux-black/60 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-lux-black via-transparent to-lux-black"></div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 space-y-6">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-lux-gold/30 bg-lux-gold/10 text-lux-champagne text-[11px] tracking-ultra uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-lux-gold animate-ping"></span>
+                    NUEVO ÁLBUM Y SHOWS 2026
+                </div>
+
+                <h1 class="font-serif-title text-6xl sm:text-8xl lg:text-9xl font-light tracking-tight text-white leading-none uppercase">
+                    LA NENA DE <span class="gold-gradient-text italic font-normal">FUEGO</span>
+                </h1>
+
+                <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+                    Seducción, elegancia y la máxima expresión del género urbano latino en un espectáculo de alta costura mundial.
+                </p>
+
+                <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#booking" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white hover:bg-lux-gold text-black font-semibold text-xs tracking-ultra uppercase px-8 py-4 rounded transition-all duration-300 transform hover:-translate-y-0.5 shadow-2xl">
+                        <i class="fa-solid fa-calendar-check text-xs"></i>
+                        Booking Directo
+                    </a>
+                    <a href="#tienda" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-transparent hover:bg-lux-surface text-lux-champagne border border-lux-gold/40 hover:border-lux-gold text-xs tracking-ultra uppercase px-8 py-4 rounded transition-all duration-300">
+                        <i class="fa-solid fa-bag-shopping text-xs text-lux-gold"></i>
+                        Ver E-Shop
+                    </a>
+                </div>
+
+            </div>
+            
+            <!-- Bottom Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-60 hover:opacity-100 transition-opacity">
+                <span class="text-[9px] tracking-ultra text-gray-400 uppercase">Explorar</span>
+                <div class="w-px h-8 bg-gradient-to-b from-lux-gold to-transparent"></div>
+            </div>
+        </section>
+
+        <section id="fanclub" class="py-24 bg-lux-surface relative overflow-hidden border-t border-b border-lux-border">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="glass-panel gold-border-glow rounded-3xl p-8 sm:p-12 md:p-16 relative">
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <!-- Left Content -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-lux-gold/10 border border-lux-gold/30 text-lux-gold text-[10px] tracking-ultra font-semibold uppercase">
+                                <i class="fa-solid fa-crown text-lux-gold"></i> COMUNIDAD PRIVADA VIP
+                            </div>
+
+                            <h2 class="font-serif-title text-4xl sm:text-6xl text-white font-light uppercase tracking-wide leading-none">
+                                SOIFER CLUB <span class="gold-gradient-text italic">— PASS</span>
+                            </h2>
+
+                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                                Formación de alta fidelidad para fanáticos exclusivos. Acceso directo al backstage, contenido no censurado, prioridad de boletos e íntimos directos.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-black/60 border border-lux-border flex items-baseline gap-4 w-fit">
+                                <span class="text-xs text-gray-400 font-light tracking-wide">Membresía mensual:</span>
+                                <span class="font-serif-title font-light text-4xl text-lux-gold">S/ 9.00</span>
+                                <span class="text-[10px] text-gray-500 uppercase tracking-widest">/ PEN</span>
+                            </div>
+
+                            <ul class="space-y-3 text-xs sm:text-sm text-gray-300">
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-gem text-lux-gold text-xs"></i>
+                                    <span><strong>Transmisiones & Backstage Pass:</strong> Directos privados y ensayos exclusivos.</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-gem text-lux-gold text-xs"></i>
+                                    <span><strong>15% Off Permanente:</strong> En toda la línea de perfumes, ropa de diseño y lencería.</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fa-solid fa-gem text-lux-gold text-xs"></i>
+                                    <span><strong>Pre-venta Prioritaria:</strong> Asegura tu ticket Platinum en todos los conciertos.</span>
+                                </li>
+                            </ul>
+
+                            <div class="pt-2">
+                                <button onclick="openFanClubModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 gold-button-gradient hover:brightness-110 text-black font-bold text-xs tracking-ultra uppercase px-8 py-4 rounded transition-all transform hover:scale-[1.02] shadow-xl">
+                                    <i class="fa-solid fa-crown"></i>
+                                    SUSCRIBIRSE POR S/ 9.00 / MES
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right VIP Card Visual -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="w-full max-w-sm aspect-[1.58/1] rounded-2xl p-6 bg-gradient-to-tr from-black via-lux-card to-lux-charcoal border border-lux-gold/40 shadow-2xl flex flex-col justify-between relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-lux-gold/10 rounded-full blur-2xl group-hover:bg-lux-gold/20 transition-all"></div>
+                                <div class="flex justify-between items-start z-10">
+                                    <div>
+                                        <p class="font-serif-title text-lg tracking-widest text-lux-gold">SOIFER CLUB</p>
+                                        <p class="text-[9px] text-gray-400 tracking-ultra uppercase">VIP MEMBER PASS</p>
+                                    </div>
+                                    <i class="fa-solid fa-crown text-lux-gold text-xl"></i>
+                                </div>
+                                <div class="z-10">
+                                    <p class="font-mono text-xs text-gray-400 tracking-widest mb-1">•••• •••• •••• 2026</p>
+                                    <p class="text-[10px] text-lux-champagne font-semibold uppercase tracking-wider">MICHEILLE SOIFER OFFICIAL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="tienda" class="py-24 bg-lux-black">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16 space-y-2">
+                    <span class="text-lux-gold font-light text-xs tracking-ultra uppercase">LÍNEA EXCLUSIVA DE ESTILO DE VIDA</span>
+                    <h2 class="font-serif-title font-light text-4xl sm:text-6xl text-white uppercase">HAUTE COUTURE E-SHOP</h2>
+                    <div class="w-12 h-px bg-lux-gold mx-auto mt-4"></div>
+                </div>
+
+                <!-- Filters Tabs -->
+                <div class="flex items-center justify-center flex-wrap gap-2 sm:gap-4 mb-12">
+                    <button onclick="filterCategory('ALL')" id="filter-ALL" class="category-btn active px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-gold text-black border border-lux-gold">TODOS</button>
+                    <button onclick="filterCategory('LENCERIA')" id="filter-LENCERIA" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">LENCERÍA</button>
+                    <button onclick="filterCategory('PERFUMES')" id="filter-PERFUMES" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">PERFUMES</button>
+                    <button onclick="filterCategory('SKINCARE')" id="filter-SKINCARE" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">SKINCARE</button>
+                    <button onclick="filterCategory('DISENO')" id="filter-DISENO" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">ROPA DE DISEÑO</button>
+                    <button onclick="filterCategory('MERCH')" id="filter-MERCH" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">MERCH</button>
+                    <button onclick="filterCategory('TICKETS')" id="filter-TICKETS" class="category-btn px-5 py-2 rounded text-xs tracking-ultra font-medium transition-all bg-lux-card text-gray-400 border border-lux-border hover:border-lux-gold">TICKETS</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Dynamic product cards populated via JS -->
+                </div>
+
+            </div>
+        </section>
+
+        <section id="booking" class="py-24 bg-lux-surface relative border-t border-b border-lux-border">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left Info Column -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-lux-gold/10 border border-lux-gold/30 text-lux-gold text-[10px] tracking-ultra font-semibold uppercase">
+                            <i class="fa-solid fa-briefcase"></i> BOOKING OFICIAL & MANAGEMENT
+                        </div>
+
+                        <h2 class="font-serif-title text-4xl sm:text-6xl text-white font-light uppercase leading-none">
+                            CONTRATAR A <br><span class="gold-gradient-text italic">MICHEILLE</span>
+                        </h2>
+
+                        <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            Disponibilidad para conciertos privados, festivales internacionales, shows corporativos, campañas publicitarias de marcas de lujo y alianzas estratégicas.
+                        </p>
+
+                        <div class="space-y-4 pt-4 border-t border-lux-border">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded bg-lux-card border border-lux-border flex items-center justify-center text-lux-gold">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Management Directo</p>
+                                    <p class="text-sm font-semibold text-white">booking@micheillesoifer.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded bg-lux-card border border-lux-border flex items-center justify-center text-lux-gold">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Oficina de Prensa & Eventos</p>
+                                    <p class="text-sm font-semibold text-white">+51 987 654 321</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Booking Request Form -->
+                    <div class="lg:col-span-7 bg-lux-card p-8 sm:p-10 rounded-2xl border border-lux-border shadow-2xl">
+                        <form onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Nombre o Empresa *</label>
+                                    <input type="text" required placeholder="Ej: Corporación Moda / Productora" class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Correo Corporativo *</label>
+                                    <input type="email" required placeholder="booking@tuempresa.com" class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Teléfono de Contacto *</label>
+                                    <input type="tel" required placeholder="+51 900 000 000" class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Tipo de Evento *</label>
+                                    <select required class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                        <option value="">Seleccionar Categoría</option>
+                                        <option value="concierto">Concierto Privado</option>
+                                        <option value="corporativo">Evento Corporativo</option>
+                                        <option value="festival">Festival / Concert Tour</option>
+                                        <option value="marca">Embajadora de Marca / Sponsorship</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Fecha Estimada *</label>
+                                    <input type="date" required class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Lugar / Ciudad / País *</label>
+                                    <input type="text" required placeholder="Ej: Lima, Perú / Miami, USA" class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-ultra mb-2">Detalles del Evento & Requerimientos</label>
+                                <textarea rows="4" placeholder="Describe el alcance del evento, aforo esperado y presupuesto estimado..." class="w-full bg-lux-black border border-lux-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-lux-gold transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full gold-button-gradient hover:brightness-110 text-black font-extrabold text-xs tracking-ultra uppercase py-4 rounded transition-all shadow-xl">
+                                ENVIAR SOLICITUD DE BOOKING
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="musica" class="py-24 bg-lux-black border-b border-lux-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16 space-y-2">
+                    <span class="text-lux-gold font-light text-xs tracking-ultra uppercase">REPRODUCTOR DE AUDIO / STREAMING</span>
+                    <h2 class="font-serif-title font-light text-4xl sm:text-6xl text-white uppercase">MÚSICA & DISCOGRAFÍA</h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-lux-card border border-lux-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
+                    <!-- Album Cover Art -->
+                    <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-xl overflow-hidden border border-lux-gold/30 shrink-0 relative group">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="La Nena de Fuego" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <!-- Audio Controls & Progress -->
+                    <div class="flex-1 w-full space-y-4">
+                        <div>
+                            <span class="text-[10px] text-lux-gold tracking-ultra uppercase font-semibold">SENCILLO OFICIAL 2026</span>
+                            <h3 class="font-serif-title text-3xl text-white font-light">La Nena de Fuego</h3>
+                            <p class="text-xs text-gray-400">Micheille Soifer — Urban High Couture Album</p>
+                        </div>
+
+                        <!-- Progress Bar Simulation -->
+                        <div class="space-y-1">
+                            <div class="w-full bg-lux-black h-1.5 rounded-full overflow-hidden border border-lux-border cursor-pointer">
+                                <div class="bg-lux-gold h-full w-2/5"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-gray-500 font-mono">
+                                <span>01:24</span>
+                                <span>03:15</span>
+                            </div>
+                        </div>
+
+                        <!-- Control Buttons -->
+                        <div class="flex items-center justify-between pt-2">
+                            <div class="flex items-center space-x-6">
+                                <button onclick="showNotification('Pista anterior')" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-backward-step"></i></button>
+                                <button onclick="toggleMusicPlay()" id="play-btn" class="w-12 h-12 rounded-full gold-button-gradient text-black flex items-center justify-center text-lg hover:brightness-110 transition-transform active:scale-95 shadow-lg">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </button>
+                                <button onclick="showNotification('Siguiente pista')" class="text-gray-400 hover:text-white transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <a href="https://spotify.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-green-500 text-lg transition-colors"><i class="fa-brands fa-spotify"></i></a>
+                                <a href="https://apple.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-pink-500 text-lg transition-colors"><i class="fa-brands fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto" class="bg-black border-t border-lux-border pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <div class="space-y-4">
+                    <span class="font-serif-title text-2xl tracking-ultra uppercase text-white">MICHEILLE SOIFER</span>
+                    <p class="text-gray-400 text-xs leading-relaxed font-light">
+                        Portal oficial de alta costura, música urbana, producciones de lujo y contrataciones exclusivas a nivel internacional.
+                    </p>
+                    <div class="flex space-x-4 text-gray-400 pt-2">
+                        <a href="#" class="hover:text-lux-gold transition-colors"><i class="fa-brands fa-instagram text-base"></i></a>
+                        <a href="#" class="hover:text-lux-gold transition-colors"><i class="fa-brands fa-tiktok text-base"></i></a>
+                        <a href="#" class="hover:text-lux-gold transition-colors"><i class="fa-brands fa-youtube text-base"></i></a>
+                        <a href="#" class="hover:text-lux-gold transition-colors"><i class="fa-brands fa-spotify text-base"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-ultra text-white mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400 font-light">
+                        <li><a href="#inicio" class="hover:text-lux-gold transition-colors">Inicio</a></li>
+                        <li><a href="#musica" class="hover:text-lux-gold transition-colors">Música</a></li>
+                        <li><a href="#fanclub" class="hover:text-lux-gold transition-colors">VIP Club (S/ 9/mes)</a></li>
+                        <li><a href="#tienda" class="hover:text-lux-gold transition-colors">E-Shop Haute Couture</a></li>
+                        <li><a href="#booking" class="hover:text-lux-gold transition-colors">Booking & Contrataciones</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-ultra text-white mb-4">Legal & Soporte</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400 font-light">
+                        <li><a href="#" onclick="showNotification('Términos')" class="hover:text-lux-gold transition-colors">Términos & Condiciones</a></li>
+                        <li><a href="#" onclick="showNotification('Privacidad')" class="hover:text-lux-gold transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" onclick="showNotification('Reclamaciones')" class="hover:text-lux-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-book text-lux-gold"></i> Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-ultra text-white mb-4">Suscripción Newsletter</h4>
+                    <p class="text-[11px] text-gray-400 font-light mb-3">Sé el primero en acceder a colecciones privadas y preventas de tours.</p>
+                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                        <input type="email" required placeholder="Tu email..." class="w-full bg-lux-card border border-lux-border rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-lux-gold">
+                        <button type="submit" class="w-full gold-button-gradient text-black font-bold text-[10px] uppercase tracking-ultra py-2 rounded hover:brightness-110 transition-all">Suscribir</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="border-t border-lux-border pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] text-gray-500 uppercase tracking-ultra gap-4">
+                <p>&copy; 2026 Micheille Soifer. Todos los derechos reservados.</p>
+                <p>www.micheillesoifer.com — Haute Couture Experience</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden pointer-events-none" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+            <div class="w-screen max-w-md bg-lux-card border-l border-lux-border flex flex-col shadow-2xl">
+                <div class="p-6 border-b border-lux-border flex items-center justify-between">
+                    <h3 class="font-serif-title font-light text-2xl text-white">CARRITO DE COMPRAS</h3>
+                    <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container">
+                    <!-- Dynamic items -->
+                </div>
+                <div class="p-6 border-t border-lux-border bg-black/60 space-y-4">
+                    <div class="flex justify-between items-center text-sm font-light text-white">
+                        <span>SUBTOTAL ESTIMADO:</span>
+                        <span id="cart-total-price" class="text-lg font-serif-title text-lux-gold">S/ 0.00</span>
+                    </div>
+                    <button onclick="checkoutCart()" class="w-full gold-button-gradient text-black font-bold text-xs tracking-ultra uppercase py-3.5 rounded hover:brightness-110 transition-all">
+                        FINALIZAR COMPRA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP Subscription Modal -->
+    <div id="fanclub-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden">
+        <div class="bg-lux-card border border-lux-gold/40 rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
+            <button onclick="closeFanClubModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div class="text-center mb-6 space-y-2">
+                <i class="fa-solid fa-crown text-lux-gold text-2xl"></i>
+                <h3 class="font-serif-title text-3xl text-white">SOIFER CLUB VIP</h3>
+                <p class="text-xs text-gray-400">Paga S/ 9.00 / mes. Cancela cuando quieras.</p>
+            </div>
+            <form onsubmit="handleFanClubSubmit(event)" class="space-y-4">
+                <input type="text" required placeholder="Nombre completo" class="w-full bg-black border border-lux-border rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-lux-gold">
+                <input type="email" required placeholder="Correo electrónico" class="w-full bg-black border border-lux-border rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-lux-gold">
+                <input type="text" required placeholder="Número de tarjeta" class="w-full bg-black border border-lux-border rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-lux-gold">
+                <button type="submit" class="w-full gold-button-gradient text-black font-extrabold text-xs tracking-ultra uppercase py-3.5 rounded mt-2">CONFIRMAR SUSCRIPCIÓN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-start justify-center pt-24 p-4 hidden">
+        <div class="bg-lux-card border border-lux-border rounded-xl max-w-xl w-full p-6 relative">
+            <button onclick="toggleSearchModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <input type="text" id="search-input" onkeyup="handleSearch(this.value)" placeholder="Buscar en la tienda..." class="w-full bg-black border border-lux-border rounded px-4 py-3 text-xs text-white focus:outline-none focus:border-lux-gold">
+            <div id="search-results" class="mt-4 space-y-2 max-h-60 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-lux-card border border-lux-gold text-white px-6 py-4 rounded shadow-2xl flex items-center space-x-3 pointer-events-none">
+        <i class="fa-solid fa-gem text-lux-gold text-base"></i>
+        <span id="toast-message" class="text-xs font-light uppercase tracking-wide">Notificación</span>
+    </div>
+
+    <script>
+        const productsData = [
+            { id: 1, name: "Bralette Silk Dark", category: "LENCERIA", price: 129.00, image: "https://images.unsplash.com/photo-1583496661160-fb5886a0afe1?q=80&w=600&auto=format&fit=crop", badge: "Haute Couture" },
+            { id: 2, name: 'Body Mesh "La Nena"', category: "LENCERIA", price: 149.00, image: "https://images.unsplash.com/photo-1516575334481-f85287c2c82d?q=80&w=600&auto=format&fit=crop", badge: "Exclusivo" },
+            { id: 3, name: "Jacket High Fashion Velvet", category: "DISENO", price: 289.00, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop", badge: "Edición Limitada" },
+            { id: 4, name: '"Glow Fire" Eau de Parfum 50ml', category: "PERFUMES", price: 189.00, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=600&auto=format&fit=crop", badge: "Signature Fragrance" },
+            { id: 5, name: "Mist Corporal Silk Shimmer", category: "SKINCARE", price: 79.00, image: "https://images.unsplash.com/photo-1608248597261-e4d094470213?q=80&w=600&auto=format&fit=crop", badge: "Golden Glow" },
+            { id: 6, name: "Serum Facial Glow Nude", category: "SKINCARE", price: 99.00, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&auto=format&fit=crop", badge: "Pure Luxury" },
+            { id: 7, name: "Hoodie Oversized Signature", category: "MERCH", price: 159.00, image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=600&auto=format&fit=crop", badge: "Urban Line" },
+            { id: 8, name: "Tour 2026 Ticket VIP Concert", category: "TICKETS", price: 250.00, image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop", badge: "Platinum Zone" }
+        ];
+
+        let cart = [];
+        let isPlaying = false;
+
+        function renderProducts(categoryFilter = 'ALL') {
+            const container = document.getElementById('products-grid');
+            container.innerHTML = '';
+
+            const filtered = categoryFilter === 'ALL' ? productsData : productsData.filter(p => p.category === categoryFilter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-lux-card border border-lux-border rounded-xl overflow-hidden hover:border-lux-gold transition-all duration-500 flex flex-col group shadow-xl";
+                card.innerHTML = `
+                    <div class="relative h-72 overflow-hidden bg-black">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <span class="absolute top-3 left-3 bg-black/80 border border-lux-gold/30 text-lux-champagne font-light text-[9px] uppercase tracking-ultra px-2.5 py-1 rounded backdrop-blur">
+                            ${product.badge}
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[9px] text-lux-gold uppercase tracking-ultra font-semibold">${product.category}</span>
+                            <h3 class="font-serif-title text-xl text-white mt-1 group-hover:text-lux-gold transition-colors">${product.name}</h3>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-lux-border">
+                            <span class="font-mono text-sm text-white">S/ ${product.price.toFixed(2)}</span>
+                            <button onclick="addToCart(${product.id})" class="bg-lux-surface hover:bg-lux-gold border border-lux-border hover:border-lux-gold text-white hover:text-black font-semibold text-[10px] uppercase tracking-ultra px-4 py-2.5 rounded transition-all">
+                                Add To Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterCategory(category) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-lux-gold', 'text-black', 'border-lux-gold');
+                btn.classList.add('bg-lux-card', 'text-gray-400', 'border-lux-border');
+            });
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-lux-card', 'text-gray-400', 'border-lux-border');
+                activeBtn.classList.add('bg-lux-gold', 'text-black', 'border-lux-gold');
+            }
+            renderProducts(category);
+        }
+
+        function addToCart(id) {
+            const product = productsData.find(p => p.id === id);
+            const item = cart.find(i => i.id === id);
+            if (item) item.quantity++;
+            else cart.push({ ...product, quantity: 1 });
+            updateCartUI();
+            showNotification(`Añadido a la bolsa de compras`);
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count-badge').innerText = count;
+
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.className = "flex items-center justify-between bg-black/60 p-3 rounded border border-lux-border space-x-3";
+                div.innerHTML = `
+                    <img src="${item.image}" class="w-12 h-12 object-cover rounded">
+                    <div class="flex-1">
+                        <p class="text-xs font-semibold text-white">${item.name}</p>
+                        <p class="text-[10px] text-lux-gold">S/ ${item.price.toFixed(2)} x ${item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-500 hover:text-red-400"><i class="fa-solid fa-trash-can text-xs"></i></button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('cart-total-price').innerText = `S/ ${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function toggleCartDrawer() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function openFanClubModal() { document.getElementById('fanclub-modal').classList.remove('hidden'); }
+        function closeFanClubModal() { document.getElementById('fanclub-modal').classList.add('hidden'); }
+        function handleFanClubSubmit(e) {
+            e.preventDefault();
+            closeFanClubModal();
+            showNotification("🎉 ¡Suscripción VIP SOIFER CLUB confirmada!");
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            e.target.reset();
+            showNotification("📩 Solicitud de Booking enviada con éxito.");
+        }
+
+        function toggleSearchModal() { document.getElementById('search-modal').classList.toggle('hidden'); }
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+        function handleNewsletter(e) { e.preventDefault(); showNotification("Suscripción al Newsletter exitosa"); }
+
+        function toggleMusicPlay() {
+            isPlaying = !isPlaying;
+            const btn = document.getElementById('play-btn');
+            btn.innerHTML = isPlaying ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play ml-0.5"></i>';
+            showNotification(isPlaying ? "Reproduciendo 'La Nena de Fuego'" : "Reproductor pausado");
+        }
+
+        function showNotification(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+
+        window.onload = function() { renderProducts('ALL'); };
+    </script>
+</body>
+</html>
